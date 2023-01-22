@@ -1,7 +1,12 @@
-function App() {
+// import Dropdown from "./components/dropdown";
+import Products from "./products";
+
+const App = () => {
   return (
-    <h1>HI</h1>
+    <div className="App">
+      <Products />
+    </div>
   );
-}
+};
 
 export default App;
