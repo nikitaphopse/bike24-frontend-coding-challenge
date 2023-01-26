@@ -1,0 +1,39 @@
+.rc-slider-rail {
+    height: 15px;
+    background-color: #8493b3;
+}
+
+.rc-slider-track {
+    height: 15px;
+    background-color: #8493b3;
+}
+
+.rc-slider-step {
+    height: 15px;
+}
+
+.rc-slider-handle {
+    width: 30px;
+    height: 30px;
+    margin-top: -7px;
+    background-color: blue;
+    border: blue;
+}
+
+.rc-slider-handle:hover {
+    border-color: blue;
+}
+
+.rc-slider-handle-dragging {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.margin-right-20 {
+    margin-right: 20px;
+}
+
+.total {
+    margin-left: 15%;
+    float: left;
+}
