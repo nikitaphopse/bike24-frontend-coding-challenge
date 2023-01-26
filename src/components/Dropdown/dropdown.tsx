@@ -1,4 +1,4 @@
-import data from "./../products.json";
+import data from "../../products.json";
 import { useState, useEffect } from "react";
 import {
   MainContainer,
