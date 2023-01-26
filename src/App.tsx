@@ -1,10 +1,9 @@
-// import Dropdown from "./components/dropdown";
-import Products from "./products";
+import Dropdown from "./components/dropdown";
 
 const App = () => {
   return (
     <div className="App">
-      <Products />
+      <Dropdown />
     </div>
   );
 };

@@ -1,23 +1,15 @@
-import { useState } from "react";
-import { Product } from "../products";
+import data from "./../products.json";
 
-const Dropdown = ({ productList }: { productList: Product[] }) => {
-  const [product, setProduct] = useState("");
-
-  const handleProductChange = (e: any) => {
-    setProduct(e.target.value);
-  };
-
+const Dropdown = () => {
   return (
     <div>
-      {product}
-      <br />
-      <select onChange={handleProductChange}>
+      <select>
         <option value="⬇️ Select a product ⬇️"> -- Select a product -- </option>
-        {productList.map((item) => (
-          <option key={item.id}>
-            {item.productName}, price per item EUR {item.price}
-          </option>
+        {data.map((product) => (
+          <option
+            key={product.id}
+            value={product.id}
+          >{`${product.productName} - $${product.price}`}</option>
         ))}
       </select>
     </div>
