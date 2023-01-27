@@ -2,6 +2,7 @@ import Dropdown from "./components/Dropdown/dropdown";
 import { useState } from "react";
 import Actions from "./components/Actions/actions";
 import { ToastContainer, toast } from "react-toastify";
+import List from "./components/List/list";
 
 const App = () => {
   const [cartArr, updateCartArr] = useState<any>([]);
@@ -26,11 +27,24 @@ const App = () => {
     clearCart();
   };
 
+  const addToCart = (product: any) => {
+    const updatedCartArr = [...cartArr, product];
+    updateCartArr(updatedCartArr);
+  };
+
+  const deleteProduct = (index: any) => {
+    let updatedCartArr = [...cartArr];
+    updatedCartArr.splice(index, 1);
+    updateCartArr(updatedCartArr);
+  };
+
   return (
     <div className="App">
-      <Dropdown cartArr={cartArr} />
+      <Dropdown cartArr={cartArr} addToCart={addToCart} />
       {cartArr.length > 0 && (
         <>
+          <List cartArr={cartArr} deleteProduct={deleteProduct}></List>
+
           <Actions
             cartArr={cartArr}
             clearCart={clearCart}

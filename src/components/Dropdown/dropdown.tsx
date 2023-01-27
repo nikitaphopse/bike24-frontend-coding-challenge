@@ -12,7 +12,7 @@ import {
 import Slider from "rc-slider";
 import "../../../src/style.css";
 
-const Dropdown = ({ cartArr }: any) => {
+const Dropdown = ({ addToCart, cartArr }: any) => {
   const initialProduct = { id: "" };
   const [selProduct, setProduct] = useState<any>(initialProduct);
   const [currCount, setCount] = useState<any>(1);
@@ -52,6 +52,14 @@ const Dropdown = ({ cartArr }: any) => {
     return cartArr.findIndex(({ id }: any) => id === selProduct?.id) !== -1;
   };
 
+  const addProductToCart = () => {
+    if (!btnDisabled) {
+      addToCart({ ...selProduct, amount: currCount });
+      setProduct(initialProduct);
+      setCount(1);
+    }
+  };
+
   return (
     <MainContainer>
       <DropdownBox onChange={handleProductChange} value={selProduct.id}>
@@ -88,7 +96,9 @@ const Dropdown = ({ cartArr }: any) => {
         </>
       )}
 
-      <BtnAddCart disabled={btnDisabled}>Add to Cart</BtnAddCart>
+      <BtnAddCart disabled={btnDisabled} onClick={addProductToCart}>
+        Add to Cart
+      </BtnAddCart>
       {currCount > selProduct.maxAmount &&
         cartArr.length !== 10 &&
         !isProductSelected() && (
