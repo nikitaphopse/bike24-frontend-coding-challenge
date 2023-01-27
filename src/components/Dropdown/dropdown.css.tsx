@@ -6,7 +6,7 @@ export const MainContainer = styled.div`
 `;
 
 export const DropdownBox = styled.select`
-  width: 450px;
+  width: 400px;
   padding: 10px 15px;
   margin: 5px;
   border: 2px solid #abb0b8;

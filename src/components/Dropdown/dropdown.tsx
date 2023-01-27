@@ -73,7 +73,6 @@ const Dropdown = ({ addToCart, cartArr }: any) => {
           } - $${product.price.toFixed(2)}`}</option>
         ))}
       </DropdownBox>
-      <br />
       {selProduct.id && (
         <>
           <SliderContainer>
