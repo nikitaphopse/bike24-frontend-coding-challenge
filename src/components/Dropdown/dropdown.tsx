@@ -10,6 +10,7 @@ import {
   BtnAddCart,
 } from "./dropdown.css";
 import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 import "../../../src/style.css";
 
 const Dropdown = ({ addToCart, cartArr }: any) => {

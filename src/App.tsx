@@ -3,6 +3,7 @@ import { useState } from "react";
 import Actions from "./components/Actions/actions";
 import { ToastContainer, toast } from "react-toastify";
 import List from "./components/List/list";
+import { Wrapper } from "./App.css";
 
 const App = () => {
   const [cartArr, updateCartArr] = useState<any>([]);
@@ -39,7 +40,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <Wrapper>
       <Dropdown cartArr={cartArr} addToCart={addToCart} />
       {cartArr.length > 0 && (
         <>
@@ -53,7 +54,7 @@ const App = () => {
         </>
       )}
       <ToastContainer />
-    </div>
+    </Wrapper>
   );
 };
 
