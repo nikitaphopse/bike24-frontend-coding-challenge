@@ -1,7 +1,6 @@
 import Dropdown from "./components/Dropdown/dropdown";
 import { useState } from "react";
 import Actions from "./components/Actions/actions";
-import { ToastContainer, toast } from "react-toastify";
 import List from "./components/List/list";
 import { Wrapper } from "./App.css";
 
@@ -13,19 +12,8 @@ const App = () => {
   };
 
   const checkout = () => {
-    console.log("trigger");
-
-    toast.success("Yay! Order placed successfully", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      type: toast.TYPE.SUCCESS,
-    });
     clearCart();
+    alert("Yayy! Order placed successfully!!!");
   };
 
   const addToCart = (product: any) => {
@@ -53,7 +41,6 @@ const App = () => {
           ></Actions>
         </>
       )}
-      <ToastContainer />
     </Wrapper>
   );
 };
