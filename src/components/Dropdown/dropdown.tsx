@@ -7,10 +7,10 @@ import {
   AmountContainer,
   Count,
   ErrorMsg,
+  BtnAddCart,
 } from "./dropdown.css";
 import Slider from "rc-slider";
-import { Button } from "react-bootstrap";
-import "../../src/style.css";
+import "../../../src/style.css";
 
 const Dropdown = ({ cartArr }: any) => {
   const initialProduct = { id: "" };
@@ -88,7 +88,7 @@ const Dropdown = ({ cartArr }: any) => {
         </>
       )}
 
-      <Button disabled={btnDisabled}>Add to Cart</Button>
+      <BtnAddCart disabled={btnDisabled}>Add to Cart</BtnAddCart>
       {currCount > selProduct.maxAmount &&
         cartArr.length !== 10 &&
         !isProductSelected() && (

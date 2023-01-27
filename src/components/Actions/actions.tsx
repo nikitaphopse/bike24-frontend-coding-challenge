@@ -1,11 +1,17 @@
-import { Button } from "react-bootstrap";
-import "../../src/style.css";
+import {
+  BtnClearCart,
+  BtnBuyCart,
+  MainContainer,
+  BtnContainer,
+  Total,
+} from "./actions.css";
+import "../../../src/style.css";
 
 const Actions = ({ cartArr = [], clearCart, checkout }: any) => {
   return (
-    <div>
+    <MainContainer>
       <span className="total">Total</span>
-      <div>
+      <Total>
         <span className="margin-right-20">
           {cartArr
             .reduce(
@@ -14,12 +20,12 @@ const Actions = ({ cartArr = [], clearCart, checkout }: any) => {
             )
             .toFixed(2)}
         </span>
-      </div>
-      <div>
-        <Button onClick={clearCart}>Clear Cart</Button>
-        <Button onClick={checkout}>Buy!</Button>
-      </div>
-    </div>
+      </Total>
+      <BtnContainer>
+        <BtnClearCart onClick={clearCart}>Clear Cart</BtnClearCart>
+        <BtnBuyCart onClick={checkout}>Buy!</BtnBuyCart>
+      </BtnContainer>
+    </MainContainer>
   );
 };
 
