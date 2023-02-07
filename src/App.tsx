@@ -1,4 +1,4 @@
-import Dropdown from "./components/Dropdown/dropdown";
+import Dropdown, { dataObj } from "./components/Dropdown/dropdown";
 import { useState } from "react";
 import Actions from "./components/Actions/actions";
 import List from "./components/List/list";
@@ -16,7 +16,7 @@ const App = () => {
     alert("Yayy! Order placed successfully!!!");
   };
 
-  const addToCart = (product: any) => {
+  const addToCart = (product: dataObj) => {
     const updatedCartArr = [...cartArr, product];
     updateCartArr(updatedCartArr);
   };

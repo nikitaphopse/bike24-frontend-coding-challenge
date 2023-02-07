@@ -6,6 +6,7 @@ import {
   Total,
 } from "./actions.css";
 import "../../../src/style.css";
+import { dataObj } from "./../Dropdown/dropdown";
 
 const Actions = ({ cartArr = [], clearCart, checkout }: any) => {
   return (
@@ -15,7 +16,8 @@ const Actions = ({ cartArr = [], clearCart, checkout }: any) => {
         <span className="margin-right-20">
           {cartArr
             .reduce(
-              (acc: any, item: any) => (acc += item.price * item.amount),
+              (acc: number, item: dataObj) =>
+                (acc += item.price * item.maxAmount),
               0
             )
             .toFixed(2)}

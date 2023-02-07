@@ -13,11 +13,33 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import "../../../src/style.css";
 
-const Dropdown = ({ addToCart, cartArr }: any) => {
-  const initialProduct = { id: "" };
-  const [selProduct, setProduct] = useState<any>(initialProduct);
-  const [currCount, setCount] = useState<any>(1);
-  const [maxCount, setMaxCount] = useState<any>();
+export interface dataObj {
+  id: string;
+  productName: string;
+  maxAmount: number;
+  taxRate: number;
+  price: number;
+}
+
+const Dropdown = ({
+  addToCart,
+  cartArr,
+}: {
+  addToCart: any;
+  cartArr: dataObj[];
+}) => {
+  const typedData: dataObj[] = data;
+  console.log(typedData);
+  const initialProduct: dataObj = {
+    id: "",
+    productName: "",
+    maxAmount: 100,
+    taxRate: 0,
+    price: 0,
+  };
+  const [selProduct, setProduct] = useState<dataObj>(initialProduct);
+  const [currCount, setCount] = useState<number>(1);
+  const [maxCount, setMaxCount] = useState<number>();
   const [btnDisabled, updateButton] = useState<any>();
 
   useEffect(() => {
@@ -39,10 +61,10 @@ const Dropdown = ({ addToCart, cartArr }: any) => {
   }, [selProduct.id, currCount, cartArr]);
 
   const handleProductChange = (event: any) => {
-    const updatedProduct = data.find(
-      (product: any) => product.id === event.target.value
+    const updatedProduct = typedData.find(
+      (product: dataObj) => product.id === event.target.value
     );
-    setProduct(updatedProduct);
+    if (updatedProduct) setProduct(updatedProduct);
   };
 
   const updateCount = (count: any) => {
@@ -50,7 +72,7 @@ const Dropdown = ({ addToCart, cartArr }: any) => {
   };
 
   const isProductSelected = () => {
-    return cartArr.findIndex(({ id }: any) => id === selProduct?.id) !== -1;
+    return cartArr.findIndex(({ id }: dataObj) => id === selProduct?.id) !== -1;
   };
 
   const addProductToCart = () => {
@@ -67,7 +89,7 @@ const Dropdown = ({ addToCart, cartArr }: any) => {
         <option disabled value="">
           Select a Product
         </option>
-        {data.map((product) => (
+        {typedData.map((product) => (
           <option key={product.id} value={product.id}>{`${
             product.productName
           } - $${product.price.toFixed(2)}`}</option>
